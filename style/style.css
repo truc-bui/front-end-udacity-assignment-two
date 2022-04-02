@@ -1,3 +1,8 @@
+
+html {
+  scroll-behavior: smooth;
+}
+
 /* ---- Style for header ---- */
 header {
   text-align: center;
@@ -38,18 +43,21 @@ h1 {
 
 /* ---- Style for body ---- */
 body {
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
 }
 
 h2 {
   letter-spacing: normal;
-  line-height: 2rem;
+  line-height: 4rem;
   color: #2E3C40;
   text-align: center;
+  font-size: 10rem;
 }
+
 h3 {
-  text-align: center;
+  font-size: 3rem;
+  text-decoration: underline;
 }
 
 h4 {
@@ -57,9 +65,16 @@ h4 {
 }
 
 .containter {
-  position: relative;
-  margin: auto 10rem;  
-  text-align: center;
+  font-size: 1.5rem;
+  position: relative;  
+  text-align: left;
+  margin-right: 10rem;
+  margin-bottom: 10rem;
+}
+
+section:nth-of-type(even){
+  text-align: right;
+  margin-left: 10rem;
 }
 
 
