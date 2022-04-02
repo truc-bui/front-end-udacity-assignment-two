@@ -1,0 +1,101 @@
+/* ---- Style for header ---- */
+header {
+  text-align: center;
+  color: #2E3C40;
+}
+
+h1 {
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-height: normal;
+  text-transform: uppercase;
+  margin: 1.5rem; 
+  
+}
+
+.header-nav {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 1.5rem 0 1.5rem 0;
+}
+
+.header-nav-item {
+  font-weight: 1000;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  text-decoration: none;
+  text-align: center;
+}
+
+@media only screen and (max-width: 700px) {
+  .header-nav {
+    flex-direction: column;
+  }
+}
+
+
+/* ---- Style for body ---- */
+body {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+h2 {
+  letter-spacing: normal;
+  line-height: 2rem;
+  color: #2E3C40;
+  text-align: center;
+}
+h3 {
+  text-align: center;
+}
+
+h4 {
+  background-color: whitesmoke;
+}
+
+.containter {
+  position: relative;
+  margin: auto 10rem;  
+  text-align: center;
+}
+
+
+
+
+@media only screen and (max-width: 700px) {
+  .containter {
+    margin: auto;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .containter {
+    margin: auto 1rem;
+  }
+}
+
+/* ---- Style for footer ---- */
+footer {
+  text-align: center;
+  padding: 1rem;
+}
+
+.footer-nav-icon {
+  /* important to override library's default styles */
+  font-size: 2rem !important;
+  color: #2E3C40;
+  padding: 1rem;
+  margin: 1rem;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 700px) {
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+  }
+}
