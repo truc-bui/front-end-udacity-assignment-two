@@ -114,3 +114,29 @@ footer {
     flex-direction: column;
   }
 }
+
+
+.button {
+  text-align: center;
+}
+
+.button-click:hover {
+  background: transparent;
+  color: #2d3436;
+  text-align: center;
+}
+
+.button-click:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+
+.button-click {
+  font-size: 2rem;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+}
