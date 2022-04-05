@@ -14,12 +14,13 @@ const MAIN_HEADER_NAV_CLASS_NAME = {
 document.addEventListener("DOMContentLoaded", function (_event) {
   const navbar = document.getElementById('main-header-nav-items-list');
   const navItemLinks = document.getElementsByClassName(MAIN_HEADER_NAV_CLASS_NAME.ITEM_LINK);
-  const sectionHeaders = document.getElementsByClassName('section-header');
+  const sectionWrappers = document.getElementsByClassName('section-wrapper');
 
   function generateNavbarItem(navItem, targetId) {
     const item = document.createElement("li");
     item.innerHTML = `<a href="#${targetId}"
       class="${MAIN_HEADER_NAV_CLASS_NAME.ITEM_LINK}"
+      id="main-header-nav-item-${targetId}"
     >
       ${navItem}
     </a>`;
@@ -28,10 +29,13 @@ document.addEventListener("DOMContentLoaded", function (_event) {
 
   /*set up for header bar */
   function gernerateNavbar() {
-    for (let sectionHeader of sectionHeaders) {
-      if (sectionHeader) {
+    for (let sectionWrapper of sectionWrappers) {
+      if (sectionWrapper) {
         navbar.appendChild(
-          generateNavbarItem(sectionHeader.innerText, sectionHeader.id)
+          generateNavbarItem(
+            sectionWrapper.firstElementChild.innerText,
+            sectionWrapper.id
+          )
         );
       }
     }
@@ -59,6 +63,39 @@ document.addEventListener("DOMContentLoaded", function (_event) {
     }
   }
 
+  function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
+
+  function bindSectionWrapperActive() {
+    let found = false;
+      let sectionWrapper;
+      for(let index = 0; index < sectionWrappers.length; index += 1) {
+        sectionWrapper = sectionWrappers[index];
+        sectionWrapper.classList.remove('section-wrapper--active');
+        if(!found && isInViewport(sectionWrapper)) {
+          sectionWrapper.classList.add('section-wrapper--active');
+          // bind active class to navbar item:
+          handleNavItemClick(document.getElementById(`main-header-nav-item-${sectionWrapper.id}`));
+          found = true;
+        }
+      }
+  }
+
+  function handleScrollingEvent() {
+    document.addEventListener('scroll', function(_e) {
+        bindSectionWrapperActive();
+    });
+  }
+ 
   gernerateNavbar();
+  bindSectionWrapperActive();
   bindMainNavItemLinkClick();
+  handleScrollingEvent();
 });

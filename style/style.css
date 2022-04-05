@@ -37,6 +37,7 @@ header {
 
 .header-nav-items-list li a:visited {
   color:black;
+ 
 }
 
 .main-header-nav-item-link--active {
@@ -64,6 +65,9 @@ h4 {
   grid-template-columns: 1fr;
 }
 
+.section-wrapper--active {
+  color: purple;
+}
 
 footer {
   text-align: center;
