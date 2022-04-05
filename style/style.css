@@ -1,62 +1,57 @@
-
 html {
   scroll-behavior: smooth;
 }
 
-/* ---- Style for header ---- */
-header {
-  text-align: center;
-  color: #2E3C40;
-}
 
-h1 {
-  font-style: normal;
-  font-weight: normal;
-  letter-spacing: normal;
-  line-height: normal;
-  text-transform: uppercase;
-  margin: 1.5rem; 
+/* for mobile first */
+.main-content {
+  display: flex;
+}
+header {
+  position: fixed;
   
 }
 
 .header-nav {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  margin: 1.5rem 0 1.5rem 0;
-}
-
-.header-nav-item {
-  font-weight: 1000;
-  padding-right: 2rem;
-  padding-left: 2rem;
   text-decoration: none;
+}
+
+.header-nav-items-list {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header-nav-items-list li {
+  list-style-type: none;
+  margin-bottom: 2rem;
+  margin-right: 2rem;
+  border: solid;
+  padding: 1rem 1rem 1rem 1rem;
+}
+
+
+.header-nav-items-list li a {
+  text-decoration: none;
+}
+
+.header-nav-items-list li a:visited {
+  color:black;
+}
+
+.main-header-nav-item-link--active {
+  font-weight: bold;
+}
+
+
+main {
+  margin-left: 8rem ;
+}
+h1 {
   text-align: center;
-}
-
-@media only screen and (max-width: 700px) {
-  .header-nav {
-    flex-direction: column;
-  }
-}
-
-
-/* ---- Style for body ---- */
-body {
-  margin-left: 10rem;
-  margin-right: 10rem;
-}
-
-h2 {
-  letter-spacing: normal;
-  line-height: 4rem;
-  color: #2E3C40;
-  text-align: center;
-  font-size: 10rem;
 }
 
 h3 {
-  font-size: 3rem;
   text-decoration: underline;
 }
 
@@ -65,78 +60,75 @@ h4 {
 }
 
 .containter {
-  font-size: 1.5rem;
-  position: relative;  
-  text-align: left;
-  margin-right: 10rem;
-  margin-bottom: 10rem;
-}
-
-section:nth-of-type(even){
-  text-align: right;
-  margin-left: 10rem;
+  margin: 2rem 2rem 2rem 2rem;
+  grid-template-columns: 1fr;
 }
 
 
-
-
-@media only screen and (max-width: 700px) {
-  .containter {
-    margin: auto;
-    grid-template-columns: 1fr;
-  }
-}
-
-@media only screen and (max-width: 1024px) {
-  .containter {
-    margin: auto 1rem;
-  }
-}
-
-/* ---- Style for footer ---- */
 footer {
   text-align: center;
   padding: 1rem;
 }
 
 .footer-nav-icon {
-  /* important to override library's default styles */
   font-size: 2rem !important;
   color: #2E3C40;
   padding: 1rem;
   margin: 1rem;
   text-decoration: none;
+  
 }
 
-@media only screen and (max-width: 700px) {
-  .footer-nav {
-    display: flex;
-    flex-direction: column;
-  }
-}
-
-
-.button {
+.scroll-to-top-button-wrapper {
   text-align: center;
 }
 
-.button-click:hover {
+.scroll-to-top-button:hover {
   background: transparent;
   color: #2d3436;
   text-align: center;
 }
 
-.button-click:after{
-  right:inherit;
-  top:inherit;
-  left:0;
-  bottom:0;
+.scroll-to-top-button:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
 }
 
-.button-click {
-  font-size: 2rem;
+.scroll-to-top-button {
+  font-size: 1rem;
   padding: 1rem;
   margin: 1rem;
   border-radius: 0.5rem;
   text-decoration: none;
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+  main {
+    margin-left: 10rem ;
+  }
+
+  .header-nav-items-list li {
+    font-size: 1.5rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    justify-content: center;
+    margin: 1.5rem 0 1.5rem 0;
+  
+  }
+
+  .containter:nth-of-type(odd) {
+    font-size: 1.1rem;
+    position: relative;
+    text-align: left;
+    padding: 3rem 3rem 3rem 3rem;
+  }
+  .containter:nth-of-type(even) {
+    font-size: 1.1rem;
+    position: relative;
+    text-align: right;
+    padding: 3rem 3rem 3rem 3rem;
+  }
 }
